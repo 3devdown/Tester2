@@ -33,10 +33,6 @@
       <header class="header">
         <i class="fas fa-bars header__menu"></i>
         <div class="header__search">
-          {{-- <input class="header__input" readonly value="BUSINESS NAME" /> --}}
-          <a class="navbar-brand" href="{{ route('business.home') }}" style="color: black;">
-            {{ config('app.busn', 'BUSINESS NAME') }}
-          </a>
         </div>
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
         <ul style="align-items: center;">
@@ -97,10 +93,13 @@
       @endif
     </div>
   </div>
+  {{-- <a class="navbar-brand" href="{{ route('business.home') }}" style="color: black;">
+    {{ config('app.busn', 'BUSINESS NAME') }}
+  </a> --}}
   <div class="row row--align-v-center row--align-h-center">
     <ul class="navList">
-      <li class="navList__heading">Main Menu</li>
-      <li>
+      <li class="navList__heading"><a class="navbar-brand" href="{{ route('business.home') }}" style="color: white;" >Home</a></li>
+      {{-- <li>
         <div class="navList__subheading row row--align-v-center">
           <span class="navList__subheading-title">User Management</span>
         </div>
@@ -108,7 +107,8 @@
           <li class="subList__item">Add User</li>
           <li class="subList__item">View User</li>
         </ul>
-      </li>
+      </li> --}}
+      
       <li>
         <div class="navList__subheading row row--align-v-center">
           <span class="navList__subheading-title">Department Management</span>
@@ -118,7 +118,7 @@
           <li class="subList__item"><a href="{{ LaravelLocalization::localizeUrl(route('department.view')) }}" style="color: white;">Update Deapartment</a></li>
         </ul>
       </li>
-      <li>
+      {{-- <li>
         <div class="navList__subheading row row--align-v-center">
           <span class="navList__subheading-title">Employee Management</span>
         </div>
@@ -126,9 +126,9 @@
           <li class="subList__item">Add Employee</li>
           <li class="subList__item">View Employee</li>
         </ul>
-      </li>
+      </li> --}}
 
-      <li>
+      {{-- <li>
         <div class="navList__subheading row row--align-v-center">
           <span class="navList__subheading-title">Shops</span>
         </div>
@@ -164,13 +164,21 @@
           <li class="subList__item">Sales Order</li>
           <li class="subList__item">Sales Invoice</li>
         </ul>
-      </li>
-      <li>
+      </li> --}}
+      {{-- <li>
         <div class="navList__subheading row row--align-v-center">
           <span class="navList__subheading-title">Purchase</span>
         </div>
         <ul class="subList subList--hidden">
           <li class="subList__item">Purchase Order</li>
+        </ul>
+      </li> --}}
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Help</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">mannual</li>
         </ul>
       </li>
     </div>
