@@ -1,173 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- CSS only -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <!--JavaScript only -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.buss', 'Admin panle') }}</title>
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-    
-<!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+  <!-- CSRF Token --> 
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<title>Admin Panleฟหกฟกฟห</title>
-</head>
-<body>
-<div class="grid">
-    <header class="header">
-      <i class="fas fa-bars header__menu"></i>
-      <div class="header__search">
-        <input class="header__input" readonly value="Business Name" />
-      </div>
-      <div class="header__avatar"><img style="width: 35px; border-radius: 50px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg" >
-        <div class="dropdown">
-          <ul class="dropdown__list">
-            <li class="dropdown__list-item">
-              <span class="dropdown__icon"><i class="far fa-user"></i></span>
-              <span class="dropdown__title">my profile</span>
-            </li>
-            <li class="dropdown__list-item">
-              <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
-              <span class="dropdown__title">my account</span>
-            </li>
-            <li class="dropdown__list-item">
-              <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class ="d-none">
-                    @csrf
+  <title>{{ config('app.busmp', 'Business Management Panel') }}</title>
+
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"></script>
+  <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css') }}" rel="stylesheet" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  
+    <div class="grid">
+      <header class="header">
+        <i class="fas fa-bars header__menu"></i>
+        <div class="header__search">
+          {{-- <input class="header__input" readonly value="BUSINESS NAME" /> --}}
+          <a class="navbar-brand" href="{{ route('business.home') }}" style="color: black;">
+            {{ config('app.busn', 'BUSINESS NAME') }}
+          </a>
+        </div>
+        <div class="header__avatar">
+          <img style="width: 35px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg">
+          
+          <div class="dropdown">
+            <ul class="dropdown__list">
+              <li class="dropdown__list-item">
+                <span class="dropdown__icon"><i class="far fa-user"></i></span>
+                  <span class="dropdown__title">My Profile</span>
+              </li>
+              <li class="dropdown__list-item">
+                <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
+                <span class="dropdown__title">My Account</span>
+              </li>
+              <li class="dropdown__list-item">
+                <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span class="dropdown__title"><a href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();" style="color: rgb(121, 121, 121);">
+                  {{ __('Logout') }}
+                </a></span>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
                 </form>
-                </a>              
+              </div>
             </li>
           </ul>
         </div>
       </div>
-    </header>
-    <aside class="sidenav">
-      <div class="sidenav__brand">
-        <i class="fas fa-feather-alt sidenav__brand-icon"></i>
-        <a class="sidenav__brand-link" href="home">Cloud2<span class="text-light">Works</span></a>
-        <i class="fas fa-times sidenav__brand-close"></i>
-      </div>
-      <div class="sidenav__profile">
-        <div class="sidenav__profile-avatar"><img style="width: 64px; border-radius: 50px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg" ></div>
-        <div class="sidenav__profile-title text-light">Thansak C</div>
-      </div>
-      <div class="row row--align-v-center row--align-h-center">
-        <ul class="navList">
-          <li class="navList__heading">Main Menu</li>
-            <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">User Management</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Add User</li>
-              <li class="subList__item">View User</li>
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Deapartment Management</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <a href="{{ url('addDepartment')}}"><li class="subList__item">Add Deapartment</li></a>
-              <a href="{{ url('viewDepartment')}}"><li class="subList__item">View Deapartment</li></a>
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Employee Management</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Add Employee</li>
-              <li class="subList__item">View Employee</li>
-            </ul>
-          </li>
+</header> 
+<body>
+<aside class="sidenav">
+  <div class="sidenav__brand">
+    <i class="fas fa-feather-alt sidenav__brand-icon"></i>
+    <a class="sidenav__brand-link" href="{{ url('/') }}">Cloud2<span class="text-light">Works</span></a>
+    <i class="fas fa-times sidenav__brand-close"></i>
+  </div>
+  <div class="sidenav__profile">
+    <div class="sidenav__profile-avatar"><img style="width: 64px; border-radius: 50px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg" ></div>
+    <div class="sidenav__profile-title text-light">
+      @if (!empty(Auth::user()->username))
+        {{ Auth::user()->username }}
+      @endif
+    </div>
+  </div>
+  <div class="row row--align-v-center row--align-h-center">
+    <ul class="navList">
+      <li class="navList__heading">Main Menu</li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">User Management</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Add User</li>
+          <li class="subList__item">View User</li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Department Management</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item"><a href="{{ LaravelLocalization::localizeUrl(route('department.add')) }}" style="color: white;">Add Deapartment</a></li>
+          <li class="subList__item"><a href="{{ LaravelLocalization::localizeUrl(route('department.view')) }}" style="color: white;">Update Deapartment</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Employee Management</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Add Employee</li>
+          <li class="subList__item">View Employee</li>
+        </ul>
+      </li>
 
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Shops</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Add Shop</li>
+          <li class="subList__item">View Shop</li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Product</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Add Product</li>
+          <li class="subList__item">View Product</li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Inventory</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Inventory Check </li>
+          <li class="subList__item">Inventory Update </li>
+          <li class="subList__item">Inventory Transaction </li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Sales</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Sales Order</li>
+          <li class="subList__item">Sales Invoice</li>
+        </ul>
+      </li>
+      <li>
+        <div class="navList__subheading row row--align-v-center">
+          <span class="navList__subheading-title">Purchase</span>
+        </div>
+        <ul class="subList subList--hidden">
+          <li class="subList__item">Purchase Order</li>
+        </ul>
+      </li>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <ul>
+      @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
           <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Shops</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Add Shop</li>
-              <li class="subList__item">View Shop</li>
-            </ul>
+              <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                  {{ $properties['native'] }}
+              </a>
           </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Product</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Add Product</li>
-              <li class="subList__item">View Product</li>
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Inventory</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Inventory Check </li>
-              <li class="subList__item">Inventory Update </li>
-              <li class="subList__item">Inventory Transaction </li>
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Sales</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Sales Order</li>
-              <li class="subList__item">Sales Invoice</li>
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-title">Purchase</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Purchase Order</li>
-            </ul>
-          </li>
-      </div>
-    </aside>
-       <!--Edit Pagezone Section-->
-           <section>
-        @yield('hello')
-        @yield('editpage')
-        @yield('viewpage')
-        @yield('addpage')
-        <!--EditPagezone End Section-->
-        </section>
-     
-      </section>
+      @endforeach
+    </ul>
+  </aside>
+  <section>
+    <!-- Business Dashboard-->
+    @yield('business-content')
+    @yield('department-add')
+    @yield('department-view')
+    @yield('department-edit')
+    <!--End Business Dashboard-->
+  </section>
 </body>
+<footer class="page-footer">
+  <center><small> Power by Cloud2Works</small></center>
+</footer>
 </html>
 <style>
   .me1{
@@ -195,8 +210,6 @@ a {
 .row {
   display: flex;
   margin-left: -25px;
-  background-color: #394263;
-  margin: auto;
 }
 .row--align-v-center {
   align-items: center;
@@ -352,8 +365,8 @@ a {
   margin-top: 2px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
-  }
-  .sidenav__brand-close {
+}
+.sidenav__brand-close {
   position: absolute;
   right: 8px;
   top: 8px;
