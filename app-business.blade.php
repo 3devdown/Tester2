@@ -38,20 +38,21 @@
             {{ config('app.busn', 'BUSINESS NAME') }}
           </a>
         </div>
-        <ul style="padding-left: 750px;">
-          @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        <ul style="align-items: center;">
           <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                      @if($properties['native'] == "English")
-                        <img src="https://www.countryflags.io/gb/flat/32.png">
-                        <i class="flag-icon flag-icon-gb"></i>
-                      @elseif($properties['native'] == "ไทย")
-                      <img src="https://www.countryflags.io/th/flat/32.png">
-                      <i class="flag-icon flag-icon-th"></i>
-                      @endif
-                    <!-- {{ $properties['native'] }} -->
-                   </a>
-              @endforeach
-              </ul>
+                  @if($properties['native'] == "English")
+                    <img src="https://www.countryflags.io/gb/flat/32.png">
+                    <i class="flag-icon flag-icon-gb"></i>
+                  @elseif($properties['native'] == "ไทย")
+                  <img src="https://www.countryflags.io/th/flat/32.png">
+                  <i class="flag-icon flag-icon-th"></i>
+                  @endif
+            {{-- {{ $properties['native'] }} --}}
+          </a>
+        </ul>
+        @endforeach
+        
         <div class="header__avatar">
           <img style="width: 35px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg">
           <div class="dropdown">
@@ -238,7 +239,7 @@ a {
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: #F9FAFC;
 }
 .header__menu {
