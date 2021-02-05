@@ -34,7 +34,7 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<title>Admin Panle</title>
+<title>Admin Panleฟหกฟกฟห</title>
 </head>
 <body>
 <div class="grid">
