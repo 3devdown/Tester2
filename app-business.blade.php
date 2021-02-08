@@ -43,14 +43,32 @@
                   @elseif($properties['native'] == "ไทย")
                   <img src="https://www.countryflags.io/th/flat/32.png">
                   <i class="flag-icon flag-icon-th"></i>
+                  @elseif($properties['native'] == "日本語")
+                  <img src="https://www.countryflags.io/jp/flat/32.png">
+                  <i class="flag-icon flag-icon-jp"></i>
                   @endif
             {{-- {{ $properties['native'] }} --}}
           </a>
         </ul>
         @endforeach
-        
+
+        <select onchange="javascript:location.href = this.value;">
+          <option style="display: none;"></option>
+          @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+          <option hreflang="{{ $localeCode }}" value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+              @if($properties['native'] == "English")
+              <img src="https://www.countryflags.io/gb/flat/32.png">
+              @elseif($properties['native'] == "ไทย")
+              <img src="https://www.countryflags.io/th/flat/32.png">
+              @elseif($properties['native'] == "日本語")
+              <img src="https://www.countryflags.io/jp/flat/32.png">
+              @endif 
+          </option>
+          @endforeach
+        </select>
+
         <div class="header__avatar">
-          <img style="width: 35px;" src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg">
+          <img style="width: 35px; border-radius: 50px;"  src="https://pugpuppiesforhomes.com/wp-content/uploads/2020/11/ig.pughub-20201020-0002.jpg">
           <div class="dropdown">
             <ul class="dropdown__list">
               <li class="dropdown__list-item">
@@ -188,7 +206,6 @@
     @yield('business-content')
     @yield('department-add')
     @yield('department-view')
-    @yield('department-edit')
     <!--End Business Dashboard-->
   </section>
 </body>
