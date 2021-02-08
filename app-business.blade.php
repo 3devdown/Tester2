@@ -13,7 +13,9 @@
   <script src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.selectboxit/3.8.0/jquery.selectBoxIt.min.js"></script>
+
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -28,13 +30,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.selectboxit/3.8.0/jquery.selectBoxIt.css">
+
     <div class="grid">
       <header class="header">
         <i class="fas fa-bars header__menu"></i>
         <div class="header__search">
         </div>
-        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
         <ul style="align-items: center;">
           <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                   @if($properties['native'] == "English")
@@ -47,23 +50,21 @@
                   <img src="https://www.countryflags.io/jp/flat/32.png">
                   <i class="flag-icon flag-icon-jp"></i>
                   @endif
-            {{-- {{ $properties['native'] }} --}}
+           {{ $properties['native'] }}
           </a>
         </ul>
-        @endforeach
+        @endforeach --}}
 
-        <select onchange="javascript:location.href = this.value;">
-          <option style="display: none;"></option>
+        <select class="country" id="country" onchange="javascript:location.href = this.value;">
+          <option style="display: none;" ></option>
           @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-          <option hreflang="{{ $localeCode }}" value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-              @if($properties['native'] == "English")
-              <img src="https://www.countryflags.io/gb/flat/32.png">
-              @elseif($properties['native'] == "ไทย")
-              <img src="https://www.countryflags.io/th/flat/32.png">
-              @elseif($properties['native'] == "日本語")
-              <img src="https://www.countryflags.io/jp/flat/32.png">
-              @endif 
-          </option>
+            @if($properties['native'] == "English")
+              <option hreflang="{{ $localeCode }}" value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" data-iconurl="https://www.countryflags.io/us/flat/32.png">{{ __('US')}}</option>
+            @elseif($properties['native'] == "ไทย")
+              <option hreflang="{{ $localeCode }}" value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" data-iconurl="https://www.countryflags.io/th/flat/32.png">{{ __('TH')}}</option>
+            @elseif($properties['native'] == "日本語")
+              <option hreflang="{{ $localeCode }}" value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" data-iconurl="https://www.countryflags.io/jp/flat/32.png">{{ __('JP')}}</option>
+            @endif 
           @endforeach
         </select>
 
@@ -922,8 +923,9 @@ a {
   }
 }
 </style>
-  <script>
+<script>
 /* Scripts for css grid dashboard */
+$("#country").selectBoxIt();
 
 $(document).ready(() => {
   addResizeListeners();
